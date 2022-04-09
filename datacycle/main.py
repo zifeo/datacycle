@@ -3,12 +3,12 @@ from pathlib import Path
 from typing import Optional
 
 import dataconf
-from furl import furl
 from datacycle import config
 from datacycle.providers import gcs
 from datacycle.providers import mongo as mongodb
 from datacycle.providers import postgres as postgresql
 from datacycle.utils import shell
+from furl import furl
 from typer import echo
 from typer import Exit
 from typer import Option
@@ -195,14 +195,17 @@ def doctor():
 
 utils = Typer()
 
+
 @utils.command()
 def gen_gcs_csek():
     import base64
     import os
+
     echo(base64.b64encode(os.urandom(32)).decode())
 
 
 cli.add_typer(utils, name="utils")
+
 
 @cli.callback()
 def main():

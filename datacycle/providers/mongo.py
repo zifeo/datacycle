@@ -10,11 +10,11 @@ import shutil
 from time import sleep
 
 import bson
-from furl import furl
-import pymongo
 from datacycle import config
 from datacycle.utils import fake_like_gen
 from datacycle.utils import shell
+from furl import furl
+import pymongo
 from tqdm import tqdm
 
 
@@ -135,7 +135,7 @@ def filtr(file, inplace_transformer, verbose=False, jsonarray=False):
         with reader(output_file, f"w{binary}") as out:
             if not jsonarray:
                 for doc in progress(bson.decode_file_iter(inp)):
-                    #if "email" in doc:
+                    # if "email" in doc:
                     #    if "domain." in doc["email"]:
                     #        out.write(bson.encode(doc))
                     #        continue
@@ -144,7 +144,7 @@ def filtr(file, inplace_transformer, verbose=False, jsonarray=False):
             else:
                 json_output = []
                 for doc in progress(json.load(inp)):
-                    #if "email" in doc:
+                    # if "email" in doc:
                     #    if "domain." in doc["email"]:
                     #        out.write(bson.encode(doc))
                     #        continue

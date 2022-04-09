@@ -52,6 +52,5 @@ def clean_fs():
 
 def require_env_var(name):
     return pytest.mark.skipif(
-        name not in environ,
-        reason=f"{name} not found in environ variables"
+        name not in environ, reason=f"{name} not found in environ variables"
     )

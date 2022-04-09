@@ -9,12 +9,13 @@ from datacycle.main import cli
 from datacycle.providers import gcs
 from datacycle.providers import mongo
 import pytest
-from tests.conftest import gcs_test1, require_env_var
+from tests.conftest import gcs_test1
 from tests.conftest import gcs_test2
 from tests.conftest import local_test1
 from tests.conftest import local_test2
 from tests.conftest import mongo_test1
 from tests.conftest import mongo_test2
+from tests.conftest import require_env_var
 from tests.utils import seed_mongo
 from typer.testing import CliRunner
 

@@ -96,7 +96,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build docker image
         run: |
-          docker build . --build-arg PYTHON_VERSION=${{ env.PYTHON_VERSION }} -t ghcr.io/${{ github.repository }}/:${{ needs.release-check.outputs.release }}
+          docker build . --build-arg PYTHON_VERSION=${{ env.PYTHON_VERSION }} -t ghcr.io/${{ github.repository }}:${{ needs.release-check.outputs.release }}
       - name: Publish
         env:
           POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
@@ -107,7 +107,7 @@ jobs:
           poetry publish
       - name: Push to Github Packages
         run: |
-          docker push ghcr.io/${{ github.repository }}/:${{ needs.release-check.outputs.release }}
+          docker push ghcr.io/${{ github.repository }}:${{ needs.release-check.outputs.release }}
       - uses: actions-ecosystem/action-push-tag@v1
         with:
           tag: v${{ needs.release-check.outputs.release }}

@@ -29,6 +29,7 @@ sqlparse = "^0.4.1"
 gsutil = { version = "^5.9", optional = true }
 
 [tool.poetry.extras]
+all = ["SQLAlchemy", "pg8000", "pymongo", "gsutil"]
 postgres = ["SQLAlchemy", "pg8000"]
 mongo = ["pymongo"]
 google = ["gsutil"]

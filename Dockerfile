@@ -1,4 +1,5 @@
-FROM python:3.10-slim-bullseye as base
+ARG PYTHON_VERSION
+FROM python:${PYTHON_VERSION}-slim
 
 WORKDIR /app
 
@@ -25,6 +26,6 @@ RUN apt update \
 
 COPY . .
 
-RUN pip install --no-cache-dir .
+RUN pip install --no-cache-dir .[all]
 
 ENTRYPOINT [ "datacycle" ]

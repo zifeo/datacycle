@@ -10,7 +10,6 @@ jobs:
   test-release:
     uses: zifeo/workflows/.github/workflows/py-test-release.yml@main
     with:
-      prerelease: ${{ github.event.inputs.prerelease }}
       python-matrix: '["3.8", "3.9", "3.10"]'
       poetry-version: "1.1.12"
       python-version: "3.10"

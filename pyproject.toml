@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "datacycle"
-version = "0.0.1"
+version = "0.0.2"
 description = "General toolset to backup & restore with random/filtered/anonymized data (Mongo/Postgres/GCS)."
 authors = []
 license = "MIT"
@@ -48,7 +48,7 @@ datacycle = 'datacycle.main:cli'
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.0.1"
+version = "0.0.2"
 tag_format = "v$major.$minor.$patch$prerelease"
 version_files = [
     "pyproject.toml:version",

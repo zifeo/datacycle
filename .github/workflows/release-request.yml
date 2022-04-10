@@ -10,6 +10,6 @@ on:
 
 jobs:
   release-request:
-    uses: zifeo/workflows/release-request.yml@main
+    uses: zifeo/workflows/.github/workflows/release-request.yml@main
     with:
       prerelease: ${{ github.event.inputs.prerelease }}

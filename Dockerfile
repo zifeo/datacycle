@@ -1,4 +1,5 @@
-FROM python:3.10-slim-bullseye as base
+ARG PYTHON_VERSION
+FROM python:${PYTHON_VERSION}-slim as base
 
 WORKDIR /app
 

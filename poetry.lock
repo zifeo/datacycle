@@ -996,6 +996,7 @@ idna = ">=2.0"
 multidict = ">=4.0"
 
 [extras]
+all = ["SQLAlchemy", "pg8000", "pymongo", "gsutil"]
 google = ["gsutil"]
 mongo = ["pymongo"]
 postgres = ["SQLAlchemy", "pg8000"]
@@ -1003,7 +1004,7 @@ postgres = ["SQLAlchemy", "pg8000"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<3.11"
-content-hash = "3fc427c1fef8196b29a7182795b96bfe9179b09b1b247755de872a92716110f5"
+content-hash = "bd449d03d5a68954e47c01a134c8d9cac35111fb96b7830c9e7cf588c063f3a2"
 
 [metadata.files]
 aiohttp = [

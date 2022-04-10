@@ -25,6 +25,6 @@ RUN apt update \
 
 COPY . .
 
-RUN pip install --no-cache-dir .
+RUN pip install --no-cache-dir .[all]
 
 ENTRYPOINT [ "datacycle" ]

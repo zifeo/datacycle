@@ -7,7 +7,7 @@ cp .env.example .env
 vim .env
 source .env
 
-poetry install -E "postgres mongo google"
+poetry install --extras all
 poetry run datacycle
 ```
 

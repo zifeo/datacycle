@@ -1,5 +1,5 @@
 ARG PYTHON_VERSION
-FROM python:${PYTHON_VERSION}-slim
+FROM python:${PYTHON_VERSION}-slim as base
 
 WORKDIR /app
 
@@ -24,8 +24,16 @@ RUN apt update \
     && apt autoremove -y \
     && rm -rf /var/lib/apt/lists/* mongodb-database-tools.deb
 
+
+FROM base as builder
+
 COPY . .
 
-RUN pip install --no-cache-dir .[all]
+RUN pip install --user --no-cache-dir .[all]
 
-ENTRYPOINT [ "datacycle" ]
+
+FROM base
+
+COPY --from=builder /root/.local /root/.local
+
+ENTRYPOINT [ "/root/.local/bin/datacycle" ]

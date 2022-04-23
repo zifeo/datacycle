@@ -18,8 +18,10 @@ def log_formatter(log):
 
 
 def dump_cli(uri, table=None, folder="dump", n_parallel=10):
-    cmd = f"pg_dump --verbose --clean --file={folder} --format=d --jobs={n_parallel}"
+    cmd = f"pg_dump --verbose --blobs --clean --file={folder} --format=d --jobs={n_parallel}"
 
+    # schema
+    # multi table
     if table is not None:
         cmd += f" --table={table}"
 
@@ -48,6 +50,7 @@ def restore_cli(uri, table=None, folder="dump", n_parallel=10, keep_previous=Fal
         ]
         shell(cmd, log_formatter=log_formatter)
 
+    # option --no-privileges
     cmd = f"pg_restore --verbose --format=d --jobs={n_parallel} --dbname={uri} {folder}"
     shell(cmd, log_formatter=log_formatter)
 
